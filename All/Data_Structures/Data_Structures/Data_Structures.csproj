@@ -52,6 +52,7 @@
     <Compile Include="HashTable.cs" />
     <Compile Include="Heap.cs" />
     <Compile Include="LinkedList.cs" />
+    <Compile Include="MaxHeap.cs" />
     <Compile Include="PriorityQueue.cs" />
     <Compile Include="PriorityQueueWithHeap.cs" />
     <Compile Include="Program.cs" />

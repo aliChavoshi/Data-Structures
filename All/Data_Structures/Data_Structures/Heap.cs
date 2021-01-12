@@ -10,6 +10,14 @@ namespace Data_Structures
         }
         private readonly int[] _items;
         private int _size;
+
+        public int Max()
+        {
+            if (IsEmpty())
+                throw new Exception("List Is Empty");
+                
+            return _items[0];
+        }
         public void Insert(int value)
         {
             if (IsFull())
