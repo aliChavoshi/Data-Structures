@@ -61,6 +61,7 @@
     <Compile Include="StackQueue.cs" />
     <Compile Include="StringBalanced.cs" />
     <Compile Include="StringReverser.cs" />
+    <Compile Include="Trie.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

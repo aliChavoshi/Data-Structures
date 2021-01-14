@@ -26,14 +26,23 @@ namespace Data_Structures
 
             #endregion
 
-            var numbers = new int[] { 10, 7, 5, 9, 6, 12 };
+            #region MaxHEAP
+
+            /*var numbers = new int[] { 10, 7, 5, 9, 6, 12 };
             var numbers1 = new int[] { 10, 7, 5, 9, 6, 12 };
             MaxHeap.Heapify(numbers);
             var heap = new Heap(6);
             foreach (var number in numbers1)
             {
                 heap.Insert(number);
-            }
+            }*/
+
+            #endregion
+
+            var tries = new Trie();
+            tries.Insert("care");
+            tries.Insert("car");
+            tries.Remove("care");
         }
         static int Hash(string value)
         {
