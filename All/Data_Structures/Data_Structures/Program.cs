@@ -26,7 +26,7 @@ namespace Data_Structures
 
             #endregion
 
-            #region MaxHEAP
+            #region MaxHeap
 
             /*var numbers = new int[] { 10, 7, 5, 9, 6, 12 };
             var numbers1 = new int[] { 10, 7, 5, 9, 6, 12 };
@@ -40,10 +40,17 @@ namespace Data_Structures
             #endregion
 
             var tries = new Trie();
-            tries.Insert("care");
             tries.Insert("car");
-            tries.Remove("care");
+            tries.Insert("care");
+            tries.Insert("card");
+            tries.Insert("careful");
+            tries.Insert("egg");
+            foreach (var value in tries.FindWordOf("car"))
+            {
+                Console.WriteLine(value);
+            }
         }
+
         static int Hash(string value)
         {
             var hash = 0;
@@ -51,8 +58,10 @@ namespace Data_Structures
             {
                 hash += chr;
             }
+
             return hash;
         }
+
         public static void Reverse(Queue<int> queues)
         {
             var stacks = new Stack<int>();
@@ -60,6 +69,7 @@ namespace Data_Structures
             {
                 stacks.Push(queues.Dequeue());
             }
+
             while (stacks.Any())
             {
                 queues.Enqueue(stacks.Pop());
