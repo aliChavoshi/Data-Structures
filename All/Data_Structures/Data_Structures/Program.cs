@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data_Structures.Part2;
 
 namespace Data_Structures
 {
@@ -39,16 +40,32 @@ namespace Data_Structures
 
             #endregion
 
+            #region Tries
+
+            /*
             var tries = new Trie();
             tries.Insert("car");
             tries.Insert("care");
             tries.Insert("card");
             tries.Insert("careful");
             tries.Insert("egg");
-            foreach (var value in tries.FindWordOf("car"))
+            foreach (var value in tries.FindWordOf(""))
             {
                 Console.WriteLine(value);
             }
+            */
+
+            #endregion
+
+            #region Graph
+            var graph = new Graph();
+            graph.AddNode("ali");
+            graph.AddNode("mosh");
+            graph.AddNode("hamid");
+            graph.AddEdge("ali", "mosh");
+            graph.AddEdge("ali", "hamid");
+            graph.Print();
+            #endregion
         }
 
         static int Hash(string value)

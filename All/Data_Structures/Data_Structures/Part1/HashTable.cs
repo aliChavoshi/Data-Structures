@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Data_Structures
+namespace Data_Structures.Part1
 {
     public class HashTable
     {

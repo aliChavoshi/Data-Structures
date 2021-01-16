@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Data_Structures
+namespace Data_Structures.Part2
 {
     public class MaxHeap
     {

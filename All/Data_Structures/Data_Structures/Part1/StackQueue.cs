@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Data_Structures
+namespace Data_Structures.Part1
 {
     public class StackQueue
     {
