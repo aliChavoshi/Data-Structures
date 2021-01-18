@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using Data_Structures.Part2;
@@ -59,12 +60,17 @@ namespace Data_Structures
 
             #region Graph
             var graph = new Graph();
-            graph.AddNode("ali");
-            graph.AddNode("mosh");
-            graph.AddNode("hamid");
-            graph.AddEdge("ali", "mosh");
-            graph.AddEdge("ali", "hamid");
-            graph.Print();
+            graph.AddNode("A");
+            graph.AddNode("B");
+            graph.AddNode("C");
+            graph.AddNode("D");
+
+            graph.AddEdge("A", "B");
+            graph.AddEdge("B", "C");
+            graph.AddEdge("A", "C");
+            graph.AddEdge("D", "A");
+            Console.WriteLine(graph.HasCycle());
+
             #endregion
         }
 
