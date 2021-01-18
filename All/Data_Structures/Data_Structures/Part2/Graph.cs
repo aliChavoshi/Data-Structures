@@ -228,7 +228,7 @@ namespace Data_Structures.Part2
                 if (!targets.Any()) continue;
                 foreach (var target in targets)
                 {
-                    Console.WriteLine(source + " connected To " + target);
+                    Console.WriteLine(source + " --> " + target);
                 }
             }
         }

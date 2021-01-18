@@ -67,9 +67,8 @@ namespace Data_Structures
 
             graph.AddEdge("A", "B");
             graph.AddEdge("B", "C");
-            graph.AddEdge("A", "C");
+            graph.AddEdge("C", "A");
             graph.AddEdge("D", "A");
-            Console.WriteLine(graph.HasCycle());
 
             #endregion
         }
