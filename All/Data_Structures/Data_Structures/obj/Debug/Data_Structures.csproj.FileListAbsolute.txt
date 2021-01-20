@@ -8,7 +8,10 @@ C:\Users\Ali Chavoshi\Google Drive\Developer\MoshHamedani\Data Structures\Exampl
 C:\Users\ac4136\Google Drive\Developer\MoshHamedani\Data Structures\Example\All\Data_Structures\Data_Structures\bin\Debug\Data_Structures.exe.config
 C:\Users\ac4136\Google Drive\Developer\MoshHamedani\Data Structures\Example\All\Data_Structures\Data_Structures\bin\Debug\Data_Structures.exe
 C:\Users\ac4136\Google Drive\Developer\MoshHamedani\Data Structures\Example\All\Data_Structures\Data_Structures\bin\Debug\Data_Structures.pdb
+C:\Users\ac4136\Google Drive\Developer\MoshHamedani\Data Structures\Example\All\Data_Structures\Data_Structures\bin\Debug\C5.dll
+C:\Users\ac4136\Google Drive\Developer\MoshHamedani\Data Structures\Example\All\Data_Structures\Data_Structures\bin\Debug\C5.xml
+C:\Users\ac4136\Google Drive\Developer\MoshHamedani\Data Structures\Example\All\Data_Structures\Data_Structures\obj\Debug\Data_Structures.csprojAssemblyReference.cache
 C:\Users\ac4136\Google Drive\Developer\MoshHamedani\Data Structures\Example\All\Data_Structures\Data_Structures\obj\Debug\Data_Structures.csproj.CoreCompileInputs.cache
+C:\Users\ac4136\Google Drive\Developer\MoshHamedani\Data Structures\Example\All\Data_Structures\Data_Structures\obj\Debug\Data_Structures.csproj.CopyComplete
 C:\Users\ac4136\Google Drive\Developer\MoshHamedani\Data Structures\Example\All\Data_Structures\Data_Structures\obj\Debug\Data_Structures.exe
 C:\Users\ac4136\Google Drive\Developer\MoshHamedani\Data Structures\Example\All\Data_Structures\Data_Structures\obj\Debug\Data_Structures.pdb
-C:\Users\ac4136\Google Drive\Developer\MoshHamedani\Data Structures\Example\All\Data_Structures\Data_Structures\obj\Debug\Data_Structures.csprojAssemblyReference.cache

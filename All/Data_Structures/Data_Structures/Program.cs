@@ -59,7 +59,7 @@ namespace Data_Structures
             #endregion
 
             #region Graph
-            var graph = new Graph();
+            /*var graph = new Graph();
             graph.AddNode("A");
             graph.AddNode("B");
             graph.AddNode("C");
@@ -68,8 +68,21 @@ namespace Data_Structures
             graph.AddEdge("A", "B");
             graph.AddEdge("B", "C");
             graph.AddEdge("C", "A");
-            graph.AddEdge("D", "A");
+            graph.AddEdge("D", "A");*/
 
+            #endregion
+
+            #region UndirectedGraph
+
+            var graph = new WeightedGraph();
+            graph.AddNode("A");
+            graph.AddNode("B");
+            graph.AddNode("C");
+            graph.AddNode("D");
+
+            graph.AddEdge("A","B",5);
+            graph.AddEdge("B","C",6);
+            graph.Print();
             #endregion
         }
 
