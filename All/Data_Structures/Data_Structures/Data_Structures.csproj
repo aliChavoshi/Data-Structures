@@ -70,6 +70,7 @@
     <Compile Include="Part1\StringBalanced.cs" />
     <Compile Include="Part1\StringReverser.cs" />
     <Compile Include="Part2\Trie.cs" />
+    <Compile Include="ViewModels\Path.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

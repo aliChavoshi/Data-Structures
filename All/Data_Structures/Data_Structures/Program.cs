@@ -78,20 +78,13 @@ namespace Data_Structures
             graph.AddNode("A");
             graph.AddNode("B");
             graph.AddNode("C");
-            graph.AddNode("D");
-            graph.AddNode("E");
 
-            graph.AddEdge("A", "B", 3);
-            graph.AddEdge("A", "D", 2);
-            graph.AddEdge("A", "C", 4);
-            graph.AddEdge("D", "C", 1);
-            graph.AddEdge("B", "D", 6);
-            graph.AddEdge("B", "E", 1);
-            graph.AddEdge("D", "E", 5);
+            graph.AddEdge("A", "B",2);
+            graph.AddEdge("B", "C",3);
+            //graph.AddEdge("C", "A",4);
 
-            Console.WriteLine(graph.GetShortestDistance("A", "E"));
-            
-            graph.Print();
+            Console.WriteLine(graph.HasCycle());
+
             #endregion
         }
 

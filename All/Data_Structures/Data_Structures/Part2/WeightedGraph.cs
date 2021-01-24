@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using Data_Structures.Part1;
+using Data_Structures.ViewModels;
 using Priority_Queue;
 
 namespace Data_Structures.Part2
@@ -133,8 +134,8 @@ namespace Data_Structures.Part2
 
             var visited = new HashSet<Node>();
 
-            var queue = new FastPriorityQueue<NodeEntry>(30);
-            queue.Enqueue(new NodeEntry(fromNode, 0), 0);
+            var queue = new FastPriorityQueue<NodeEntry>(10);
+            queue.Enqueue(node: new NodeEntry(fromNode, 0), priority: 0);
 
             while (queue.Any())
             {
@@ -156,6 +157,108 @@ namespace Data_Structures.Part2
             return distances[_nodes[to]];
         }
 
+        public Path GetShortestPath(string from, string to)
+        {
+            if (!_nodes.TryGetValue(from, out var fromNode))
+                throw new Exception("from node not exist");
+            if (!_nodes.TryGetValue(to, out var toNode))
+                throw new Exception("to node not exist");
+
+            var distances = new Dictionary<Node, int>();
+            foreach (var node in _nodes.Values)
+            {
+                distances.Add(node, int.MaxValue);
+            }
+            distances.Remove(fromNode);
+            distances.Add(fromNode, 0);
+
+            var visited = new HashSet<Node>();
+
+            var privouseNode = new Dictionary<Node, Node>();
+
+            var queue = new FastPriorityQueue<NodeEntry>(10);
+            queue.Enqueue(node: new NodeEntry(fromNode, 0), priority: 0);
+
+            while (queue.Any())
+            {
+                var current = queue.Dequeue().GetNode();
+                visited.Add(current);
+
+                foreach (var edge in current.GetEdges())
+                {
+                    var edgeTo = edge.To();
+                    if (visited.Contains(edgeTo))
+                        continue;
+
+                    var newDistance = distances[current] + edge.GetWeight();
+                    if (newDistance >= distances[edgeTo]) continue;
+
+                    distances.Remove(edgeTo);
+                    distances.Add(edgeTo, newDistance);
+                    if (privouseNode.TryGetValue(edgeTo, out var currentNode))
+                    {
+                        privouseNode.Remove(edgeTo);
+                    }
+                    privouseNode.Add(edgeTo, current);
+                    queue.Enqueue(new NodeEntry(edgeTo, newDistance), newDistance);
+                }
+            }
+            return BuildPath(privouseNode, toNode);
+        }
+
+        private Path BuildPath(Dictionary<Node, Node> privouseNode, Node toNode)
+        {
+            var stack = new Stack<Node>();
+            stack.Push(toNode);//E
+            if (privouseNode.TryGetValue(toNode, out var privious))//B
+            {
+
+            }
+            while (privious != null)
+            {
+                stack.Push(privious);//B
+                if (privouseNode.TryGetValue(privious, out var node))//A
+                {
+
+                }
+                privious = node;
+            }
+
+            var path = new Path();
+            while (stack.Any())
+            {
+                path.Add(stack.Pop().ToString());
+            }
+            return path;
+        }
+
+        public bool HasCycle()
+        {
+            var visited = new HashSet<Node>();
+            foreach (var node in _nodes.Values)
+            {
+                if (!visited.Contains(node) && HasCycle(node, null, visited))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool HasCycle(Node node, Node parent, HashSet<Node> visited)
+        {
+            visited.Add(node);
+            foreach (var edge in node.GetEdges())
+            {
+                var edgeTo = edge.To();
+                if (edgeTo == parent)
+                    continue;
+                if (visited.Contains(edgeTo) || HasCycle(edgeTo, node, visited))
+                    return true;
+            }
+            return false;
+        }
+        
         public void Print()
         {
             foreach (var node in _nodes.Values)
