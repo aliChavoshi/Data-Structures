@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Globalization;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using Data_Structures.Part1;
 using Data_Structures.ViewModels;
 using Priority_Queue;
 
@@ -13,7 +8,7 @@ namespace Data_Structures.Part2
 {
     public class WeightedGraph
     {
-        private static readonly Dictionary<string, Node> _nodes = new Dictionary<string, Node>();
+        private Dictionary<string, Node> _nodes = new Dictionary<string, Node>();
 
         private class Node
         {
@@ -27,11 +22,14 @@ namespace Data_Structures.Part2
             {
                 return _label;
             }
+            public string GetLabel()
+            {
+                return _label;
+            }
             public void AddEdge(string toNode, int weight)
             {
                 _edges.Add(new Edge(_label, toNode, weight));
             }
-
             public List<Edge> GetEdges()
             {
                 return _edges;
@@ -42,7 +40,7 @@ namespace Data_Structures.Part2
             private readonly string _from;
             private readonly string _to;
             private readonly int _weight;
-            public Edge(string @from, string to, int weight)
+            public Edge(string from, string to, int weight)
             {
                 _from = @from;
                 _to = to;
@@ -54,16 +52,15 @@ namespace Data_Structures.Part2
             }
             public override string ToString()
             {
-                return _from + "->" + _to + " " + $"{_weight}";
+                return _from + "->" + _to + " : " + $"{_weight}";
             }
-            public Node To()
+            public string To()
             {
-                if (_nodes.TryGetValue(_to, out var node))
-                {
-                    return node;
-                }
-
-                return null;
+                return _to;
+            }
+            public string From()
+            {
+                return _from;
             }
         }
 
@@ -88,20 +85,20 @@ namespace Data_Structures.Part2
             }
         }
 
-        private bool HasNode(string label)
+        private bool containsNode(string label)
         {
             return _nodes.ContainsKey(label);
         }
 
-        private Node Get(string from)
+        private Node Get(string label)
         {
-            return _nodes.TryGetValue(@from, out var node) ? node : null;
+            return _nodes.TryGetValue(label, out var node) ? node : null;
         }
 
         public void AddNode(string label)
         {
             var node = new Node(label);
-            if (HasNode(label)) return;
+            if (containsNode(label)) return;
 
             _nodes.Add(label, node);
         }
@@ -144,7 +141,7 @@ namespace Data_Structures.Part2
 
                 foreach (var edge in current.GetEdges())
                 {
-                    var edgeTo = edge.To();
+                    var edgeTo = Get(edge.To());
                     if (visited.Contains(edgeTo))
                         continue;
                     var newDistance = distances[current] + edge.GetWeight();
@@ -186,7 +183,7 @@ namespace Data_Structures.Part2
 
                 foreach (var edge in current.GetEdges())
                 {
-                    var edgeTo = edge.To();
+                    var edgeTo = Get(edge.To());
                     if (visited.Contains(edgeTo))
                         continue;
 
@@ -245,12 +242,18 @@ namespace Data_Structures.Part2
             return false;
         }
 
+        public int GetCountNode()
+        {
+            return _nodes.Count;
+        }
+
         private bool HasCycle(Node node, Node parent, HashSet<Node> visited)
         {
             visited.Add(node);
             foreach (var edge in node.GetEdges())
             {
-                var edgeTo = edge.To();
+                var edgeTo = Get(edge.To());
+                //no visit parent
                 if (edgeTo == parent)
                     continue;
                 if (visited.Contains(edgeTo) || HasCycle(edgeTo, node, visited))
@@ -258,7 +261,44 @@ namespace Data_Structures.Part2
             }
             return false;
         }
-        
+
+        public WeightedGraph SpanningTree()
+        {
+            var tree = new WeightedGraph();
+            var edges = new SimplePriorityQueue<Edge, int>();
+            var startNode = _nodes.Values.First();
+            //C : min,B
+            foreach (var edge in startNode.GetEdges())
+            {
+                edges.Enqueue(edge, edge.GetWeight());
+            }
+            //A
+            tree.AddNode(startNode.GetLabel());
+
+            while (tree.GetCountNode() < GetCountNode())
+            {
+                //C
+                var minEdge = edges.Dequeue();
+                if (tree.containsNode(minEdge.To()))
+                    continue;
+                //C
+                tree.AddNode(minEdge.To());
+                //A->C
+                tree.AddEdge(minEdge.From(), minEdge.To(), minEdge.GetWeight());
+                //C
+                var nextNode = Get(minEdge.To());
+
+                foreach (var edge in nextNode.GetEdges())
+                {
+                    if (!tree.containsNode(edge.To()))
+                    {
+                        edges.Enqueue(edge, edge.GetWeight());
+                    }
+                }
+            }
+            return tree;
+        }
+
         public void Print()
         {
             foreach (var node in _nodes.Values)
