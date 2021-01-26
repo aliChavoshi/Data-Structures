@@ -8,24 +8,24 @@ namespace Data_Structures.Part1
         private readonly LinkedList<Entry>[] _entries = new LinkedList<Entry>[10];
         private class Entry
         {
-            private int key;
-            private string value;
+            private readonly int _key;
+            private string _value;
             public Entry(int key, string value)
             {
-                this.key = key;
-                this.value = value;
+                _key = key;
+                _value = value;
             }
             public int GetKey()
             {
-                return key;
+                return _key;
             }
             public string GetValue()
             {
-                return value;
+                return _value;
             }
             public void SetValue(string value)
             {
-                this.value = value;
+               ._value = value;
             }
         }
         public void Put(int key, string value)
@@ -104,5 +104,4 @@ namespace Data_Structures.Part1
         }
         private int Hash(int key) => key % _entries.Length;
     }
-
 }

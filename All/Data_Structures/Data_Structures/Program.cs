@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
+using Data_Structures.Part1;
 using Data_Structures.Part2;
 
 namespace Data_Structures
@@ -74,6 +75,7 @@ namespace Data_Structures
 
             #region UndirectedGraph
 
+            /*
             var graph = new WeightedGraph();
             graph.AddNode("A");
             graph.AddNode("B");
@@ -96,6 +98,7 @@ namespace Data_Structures
             var tree = graph.SpanningTree();
             tree.Print();
 
+            */
             #endregion
         }
 
@@ -108,20 +111,6 @@ namespace Data_Structures
             }
 
             return hash;
-        }
-
-        public static void Reverse(Queue<int> queues)
-        {
-            var stacks = new Stack<int>();
-            while (queues.Any())
-            {
-                stacks.Push(queues.Dequeue());
-            }
-
-            while (stacks.Any())
-            {
-                queues.Enqueue(stacks.Pop());
-            }
         }
     }
 }

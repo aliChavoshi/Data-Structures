@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Part1\Array.cs" />
     <Compile Include="Part1\ArrayQueue.cs" />
+    <Compile Include="Part1\ReverseQueueByStack.cs" />
     <Compile Include="Part2\AvlTree.cs" />
     <Compile Include="Part2\BinaryTree.cs" />
     <Compile Include="Part1\CharFinderDictionary.cs" />
@@ -67,8 +68,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Part1\Stack.cs" />
     <Compile Include="Part1\StackQueue.cs" />
-    <Compile Include="Part1\StringBalanced.cs" />
-    <Compile Include="Part1\StringReverser.cs" />
+    <Compile Include="Part1\StringBalancedStack.cs" />
+    <Compile Include="Part1\StringReverserStack.cs" />
     <Compile Include="Part2\Trie.cs" />
     <Compile Include="ViewModels\Path.cs" />
   </ItemGroup>
