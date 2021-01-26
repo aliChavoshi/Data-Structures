@@ -1,9 +1,0 @@
-﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
-  &lt;Assembly Path="C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.Core.dll" /&gt;&#xD;
-  &lt;Assembly Path="C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.dll" /&gt;&#xD;
-  &lt;Assembly Path="C:\Users\ac4136\Google Drive\Developer\MoshHamedani\Data Structures\Example\All\Data_Structures\packages\C5.2.5.3\lib\net45\C5.dll" /&gt;&#xD;
-  &lt;Assembly Path="C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll" /&gt;&#xD;
-  &lt;Assembly Path="C:\Users\ac4136\Google Drive\Developer\MoshHamedani\Data Structures\Example\All\Data_Structures\packages\PriorityQueueK-karasan.1.1.0\lib\netstandard2.0\PriorityQueue.dll" /&gt;&#xD;
-  &lt;Assembly Path="C:\Users\ac4136\Google Drive\Developer\MoshHamedani\Data Structures\Example\All\Data_Structures\packages\OptimizedPriorityQueue.5.0.0\lib\net45\PriorityQueue.dll" /&gt;&#xD;
-&lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>
