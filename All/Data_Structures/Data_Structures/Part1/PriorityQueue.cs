@@ -10,7 +10,6 @@ namespace Data_Structures.Part1
         {
             _items = new int[capacity];
         }
-
         public void Add(int value)
         {
             if (IsFull())
@@ -20,8 +19,7 @@ namespace Data_Structures.Part1
             _items[i] = value;
             _count++;
         }
-
-        public int ShiftItemsToInsert(int value)
+        private int ShiftItemsToInsert(int value)
         {
             int i;
             for (i = _count - 1; i >= 0; i--)
@@ -37,7 +35,6 @@ namespace Data_Structures.Part1
             }
             return i + 1;
         }
-
         public int Remove()
         {
             if (IsEmpty())
@@ -57,6 +54,4 @@ namespace Data_Structures.Part1
             return _count == 0;
         }
     }
-
-
 }
