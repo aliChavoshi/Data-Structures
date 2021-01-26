@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Data_Structures.Part1
 {
-    public class StringReverser
+    public class StringReverserStack
     {
         public string Reverse(string input)
         {
