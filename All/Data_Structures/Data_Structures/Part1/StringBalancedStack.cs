@@ -4,10 +4,10 @@ using System.Linq;
 
 namespace Data_Structures.Part1
 {
-    public class StringBalanced
+    public class StringBalancedStack
     {
-        private List<string> _leftBrackets = new List<string>() { "(", "[", "<", "{" };
-        private List<string> _rightBrackets = new List<string>() { ")", "]", ">", "}" };
+        private readonly List<string> _leftBrackets = new List<string>() { "(", "[", "<", "{" };
+        private readonly List<string> _rightBrackets = new List<string>() { ")", "]", ">", "}" };
         public bool IsBalanced(string input)
         {
             var stack = new Stack<char>();
