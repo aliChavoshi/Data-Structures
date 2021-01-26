@@ -16,7 +16,7 @@ namespace Data_Structures.Part1
 
         public void Enqueue(int value)
         {
-            if (_count == _items.Length)
+            if (IsFull())
                 throw new Exception("Queue Is Full");
             _items[_rear] = value;
             _rear = (_rear + 1) % _items.Length;
@@ -24,6 +24,8 @@ namespace Data_Structures.Part1
         }
         public int Dequeue()
         {
+            if (IsEmpty())
+                throw new Exception("List is Empty");
             var item = _items[_front];
             _items[_front] = 0;
             _front = (_front + 1) % _items.Length;
