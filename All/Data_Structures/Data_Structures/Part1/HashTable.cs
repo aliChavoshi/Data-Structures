@@ -25,7 +25,7 @@ namespace Data_Structures.Part1
             }
             public void SetValue(string value)
             {
-               ._value = value;
+               _value = value;
             }
         }
         public void Put(int key, string value)

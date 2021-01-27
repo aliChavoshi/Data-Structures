@@ -32,6 +32,7 @@ namespace Data_Structures.Part2
                 _rightChild = rightChild;
             }
         }
+
         public void Insert(int item)
         {
             var node = new Node(item, null, null);
@@ -100,6 +101,7 @@ namespace Data_Structures.Part2
                 }
             }
         }
+
         public void TraverseInOrder()
         {
             TraverseInOrder(_root);
@@ -137,6 +139,7 @@ namespace Data_Structures.Part2
             TraversePreOrder(root.GetLeftChild());
             TraversePreOrder(root.GetRightChild());
         }
+
         private bool IsLeaf(Node root)
         {
             return root.GetLeftChild() == null && root.GetRightChild() == null;
@@ -155,6 +158,7 @@ namespace Data_Structures.Part2
 
             return 1 + Math.Max(Height(root.GetLeftChild()), Height(root.GetRightChild()));
         }
+
         public int MaxLog()
         {
             if (_root == null)
@@ -170,13 +174,10 @@ namespace Data_Structures.Part2
             }
             return last.GetValue();
         }
-        //O(log n)
         public int MinLog()
         {
             if (_root == null)
-            {
                 return -1;
-            }
             var current = _root;
             var last = current;
             while (current != null)
@@ -190,9 +191,11 @@ namespace Data_Structures.Part2
         {
             return Min(_root);
         }
-        //O(n)
         private int Min(Node root)
         {
+            if (root == null)
+                return Int32.MaxValue;
+
             if (IsLeaf(root))
                 return root.GetValue();
 
@@ -201,6 +204,7 @@ namespace Data_Structures.Part2
             //min 3 Values 
             return Math.Min(Math.Min(left, right), root.GetValue());
         }
+
         public bool EqualsTree(BinaryTree other)
         {
             if (other == null)
@@ -212,9 +216,7 @@ namespace Data_Structures.Part2
         {
             //End Tree
             if (first == null && second == null)
-            {
                 return true;
-            }
             if (first != null && second != null)
             {
                 return first.GetValue() == second.GetValue()
@@ -223,6 +225,7 @@ namespace Data_Structures.Part2
             }
             return false;
         }
+
         public bool BinarySearchTree()
         {
             return BinarySearchTree(_root, int.MinValue, int.MaxValue);
@@ -238,12 +241,14 @@ namespace Data_Structures.Part2
             if (root == null)
                 return true;
 
+            //min < root < max
             if (root.GetValue() > max || root.GetValue() < min)
                 return false;
 
             return BinarySearchTree(root.GetLeftChild(), min, root.GetValue() - 1)
                 && BinarySearchTree(root.GetRightChild(), root.GetValue() + 1, max);
         }
+
         public List<int> GetNodesAtDistance(int distance)
         {
             var list = new List<int>();
@@ -252,9 +257,7 @@ namespace Data_Structures.Part2
         private List<int> GetNodesAtDistance(Node root, int distance, List<int> list)
         {
             if (root == null)
-            {
                 return list;
-            }
 
             if (distance < 0)
                 throw new Exception("distance > 0");
@@ -270,6 +273,7 @@ namespace Data_Structures.Part2
 
             return list;
         }
+
         public void TraverseLevelOrder()
         {
             for (var i = 0; i <= Height(); i++)

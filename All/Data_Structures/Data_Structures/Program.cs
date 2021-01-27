@@ -100,6 +100,13 @@ namespace Data_Structures
 
             */
             #endregion
+
+            var tree = new BinaryTree();
+            tree.Insert(7);
+            tree.Insert(5);
+            tree.Insert(1);
+            tree.Insert(9);
+            tree.GetNodesAtDistance(2);
         }
 
         static int Hash(string value)
