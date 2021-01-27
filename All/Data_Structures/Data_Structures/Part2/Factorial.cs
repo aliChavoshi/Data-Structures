@@ -1,4 +1,4 @@
-﻿namespace Data_Structures.Part1
+﻿namespace Data_Structures.Part2
 {
     public class Factorial
     {
