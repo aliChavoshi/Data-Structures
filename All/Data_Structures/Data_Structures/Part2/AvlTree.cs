@@ -7,7 +7,7 @@ namespace Data_Structures.Part2
         private AvlNode _root;
         private class AvlNode
         {
-            private int _value;
+            private readonly int _value;
             private AvlNode _leftChild;
             private AvlNode _rightChild;
             private int _height;
@@ -15,16 +15,9 @@ namespace Data_Structures.Part2
             {
                 _value = value;
             }
-            public AvlNode(int value, int height)
-            {
-                _value = value;
-                _height = height;
-            }
             public int GetValue() => _value;
             public int GetHeight() => _height;
-            public void SetValue(int value) => _value = value;
             public void SetHeight(int value) => _height = value;
-
             public AvlNode GetLeftChild() => _leftChild;
             public void SetLeftChild(AvlNode leftNode)
             {
@@ -47,7 +40,6 @@ namespace Data_Structures.Part2
 
             if (value > root.GetValue())
                 root.SetRightChild(Insert(root.GetRightChild(), value));
-
             else
                 root.SetLeftChild(Insert(root.GetLeftChild(), value));
 
@@ -123,6 +115,5 @@ namespace Data_Structures.Part2
         {
             return node == null ? -1 : node.GetHeight();
         }
-
     }
 }

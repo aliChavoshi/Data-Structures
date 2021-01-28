@@ -101,12 +101,10 @@ namespace Data_Structures
             */
             #endregion
 
-            var tree = new BinaryTree();
-            tree.Insert(7);
-            tree.Insert(5);
-            tree.Insert(1);
-            tree.Insert(9);
-            tree.GetNodesAtDistance(2);
+            var tree = new AvlTree();
+            tree.Insert(10);
+            tree.Insert(20);
+            tree.Insert(15);
         }
 
         static int Hash(string value)
