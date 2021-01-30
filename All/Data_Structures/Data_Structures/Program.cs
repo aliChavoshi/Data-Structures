@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Data_Structures.Part1;
 using Data_Structures.Part2;
+using Data_Structures.Part3;
 
 namespace Data_Structures
 {
@@ -101,10 +102,9 @@ namespace Data_Structures
             */
             #endregion
 
-            var tree = new Heap(5);
-            tree.Insert(20);
-            tree.Insert(10);
-            tree.Insert(22);
+            var numbers = new int[] { 1, 10, 3, 2 };
+            var sorting = new Sorting(numbers);
+            sorting.BubbleUpSorting();
         }
 
         static int Hash(string value)

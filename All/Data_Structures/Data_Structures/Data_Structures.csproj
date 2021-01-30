@@ -64,6 +64,7 @@
     <Compile Include="Part1\PriorityQueue.cs" />
     <Compile Include="Part2\PriorityQueueWithHeap.cs" />
     <Compile Include="Part2\WeightedGraph.cs" />
+    <Compile Include="Part3\Sorting.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Part1\Stack.cs" />
