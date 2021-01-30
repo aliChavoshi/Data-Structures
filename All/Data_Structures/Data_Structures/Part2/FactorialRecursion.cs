@@ -1,6 +1,6 @@
 ﻿namespace Data_Structures.Part2
 {
-    public class Factorial
+    public class FactorialRecursion
     {
         //4 = 4 * 3 * 2 * 1  
         //3 = 3 * 2 * 1

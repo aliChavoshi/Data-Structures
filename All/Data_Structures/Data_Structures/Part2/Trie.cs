@@ -17,42 +17,34 @@ namespace Data_Structures.Part2
             {
                 _value = value;
             }
-
             public void Remove(char chr)
             {
                 _children.Remove(chr);
             }
-
             public bool HasChildren()
             {
                 return _children.Any();
             }
-
             public char GetValue()
             {
                 return _value;
             }
-
             public override string ToString()
             {
                 return _value.ToString();
             }
-
             public bool HasChild(char chr)
             {
                 return _children.ContainsKey(chr);
             }
-
             public void AddChild(char chr)
             {
                 _children.Add(chr, new Node(chr));
             }
-
             public Node GetChild(char chr)
             {
                 return _children[chr];
             }
-
             public Node[] GetChildren()
             {
                 return _children.Values.ToArray();
@@ -84,13 +76,9 @@ namespace Data_Structures.Part2
             foreach (var chr in word)
             {
                 if (!current.HasChild(chr))
-                {
                     return false;
-                }
-
                 current = current.GetChild(chr);
             }
-
             return current.IsEndOfWord;
         }
 
@@ -98,7 +86,6 @@ namespace Data_Structures.Part2
         {
             TraversePreOrder(_root);
         }
-
         private void TraversePreOrder(Node node)
         {
             //Pre-Order : Visit The Root First
@@ -113,7 +100,6 @@ namespace Data_Structures.Part2
         {
             TraversePostOrder(_root);
         }
-
         private void TraversePostOrder(Node node)
         {
             foreach (var child in node.GetChildren())
@@ -128,7 +114,6 @@ namespace Data_Structures.Part2
         {
             Remove(_root, word, 0);
         }
-
         private void Remove(Node root, string word, int index)
         {
             if (index == word.Length)
@@ -158,7 +143,6 @@ namespace Data_Structures.Part2
             var lastNode = GetLastNodeOf(prefix);
             return FindWordOf(lastNode, prefix, words);
         }
-
         private List<string> FindWordOf(Node root, string prefix, List<string> words)
         {
             if (root == null)
@@ -184,10 +168,8 @@ namespace Data_Structures.Part2
                 {
                     return null;
                 }
-
                 current = current.GetChild(chr);
             }
-
             return current;
         }
     }

@@ -10,7 +10,10 @@ namespace Data_Structures.Part2
         }
         private readonly int[] _items;
         private int _size;
-
+        public bool IsFull()
+        {
+            return _size == _items.Length;
+        }
         public int Max()
         {
             if (IsEmpty())
@@ -42,6 +45,7 @@ namespace Data_Structures.Part2
         {
             return _size == 0;
         }
+        
         private bool IsValidParent(int index)
         {
             if (!HasLeftChild(index))
@@ -119,10 +123,6 @@ namespace Data_Structures.Part2
         private int ParentIndex(int index)
         {
             return (index - 1) / 2;
-        }
-        public bool IsFull()
-        {
-            return _size == _items.Length;
         }
     }
 }

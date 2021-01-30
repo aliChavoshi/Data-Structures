@@ -55,7 +55,7 @@
     <Compile Include="Part2\AvlTree.cs" />
     <Compile Include="Part2\BinaryTree.cs" />
     <Compile Include="Part1\CharFinderDictionary.cs" />
-    <Compile Include="Part2\Factorial.cs" />
+    <Compile Include="Part2\FactorialRecursion.cs" />
     <Compile Include="Part1\HashTable.cs" />
     <Compile Include="Part2\Graph.cs" />
     <Compile Include="Part2\Heap.cs" />

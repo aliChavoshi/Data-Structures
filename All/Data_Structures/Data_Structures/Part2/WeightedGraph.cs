@@ -8,7 +8,7 @@ namespace Data_Structures.Part2
 {
     public class WeightedGraph
     {
-        private Dictionary<string, Node> _nodes = new Dictionary<string, Node>();
+        private readonly Dictionary<string, Node> _nodes = new Dictionary<string, Node>();
 
         private class Node
         {
@@ -85,24 +85,13 @@ namespace Data_Structures.Part2
             }
         }
 
-        private bool containsNode(string label)
-        {
-            return _nodes.ContainsKey(label);
-        }
-
-        private Node Get(string label)
-        {
-            return _nodes.TryGetValue(label, out var node) ? node : null;
-        }
-
         public void AddNode(string label)
         {
             var node = new Node(label);
-            if (containsNode(label)) return;
+            if (ContainsNode(label)) return;
 
             _nodes.Add(label, node);
         }
-
         public void AddEdge(string from, string to, int weight)
         {
             if (!_nodes.TryGetValue(from, out var fromNode))
@@ -113,7 +102,6 @@ namespace Data_Structures.Part2
             fromNode.AddEdge(to, weight);
             toNode.AddEdge(from, weight);
         }
-
         public int GetShortestDistance(string @from, string to)
         {
             if (!_nodes.TryGetValue(from, out var fromNode))
@@ -153,7 +141,6 @@ namespace Data_Structures.Part2
             }
             return distances[_nodes[to]];
         }
-
         public Path GetShortestPath(string from, string to)
         {
             if (!_nodes.TryGetValue(from, out var fromNode))
@@ -202,6 +189,84 @@ namespace Data_Structures.Part2
             }
             return BuildPath(privouseNode, toNode);
         }
+        public WeightedGraph SpanningTree()
+        {
+            var tree = new WeightedGraph();
+            var edges = new SimplePriorityQueue<Edge, int>();
+            var startNode = _nodes.Values.First();
+            //C : min,B
+            foreach (var edge in startNode.GetEdges())
+            {
+                edges.Enqueue(edge, edge.GetWeight());
+            }
+            //A
+            tree.AddNode(startNode.GetLabel());
+
+            while (tree.GetCountNode() < GetCountNode())
+            {
+                //C
+                var minEdge = edges.Dequeue();
+                if (tree.ContainsNode(minEdge.To()))
+                    continue;
+                //C
+                tree.AddNode(minEdge.To());
+                //A->C
+                tree.AddEdge(minEdge.From(), minEdge.To(), minEdge.GetWeight());
+                //C
+                var nextNode = Get(minEdge.To());
+
+                foreach (var edge in nextNode.GetEdges())
+                {
+                    if (!tree.ContainsNode(edge.To()))
+                    {
+                        edges.Enqueue(edge, edge.GetWeight());
+                    }
+                }
+            }
+            return tree;
+        }
+
+        private bool HasCycle(Node node, Node parent, HashSet<Node> visited)
+        {
+            visited.Add(node);
+            foreach (var edge in node.GetEdges())
+            {
+                var edgeTo = Get(edge.To());
+                //no visit parent
+                if (edgeTo == parent)
+                    continue;
+                if (visited.Contains(edgeTo) || HasCycle(edgeTo, node, visited))
+                    return true;
+            }
+            return false;
+        }
+        public bool HasCycle()
+        {
+            var visited = new HashSet<Node>();
+            foreach (var node in _nodes.Values)
+            {
+                if (!visited.Contains(node) && HasCycle(node, null, visited))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        public int GetCountNode()
+        {
+            return _nodes.Count;
+        }
+        
+        private bool ContainsNode(string label)
+        {
+            return _nodes.ContainsKey(label);
+        }
+        
+        private Node Get(string label)
+        {
+            return _nodes.TryGetValue(label, out var node) ? node : null;
+        }
 
         private Path BuildPath(Dictionary<Node, Node> privouseNode, Node toNode)
         {
@@ -227,76 +292,6 @@ namespace Data_Structures.Part2
                 path.Add(stack.Pop().ToString());
             }
             return path;
-        }
-
-        public bool HasCycle()
-        {
-            var visited = new HashSet<Node>();
-            foreach (var node in _nodes.Values)
-            {
-                if (!visited.Contains(node) && HasCycle(node, null, visited))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public int GetCountNode()
-        {
-            return _nodes.Count;
-        }
-
-        private bool HasCycle(Node node, Node parent, HashSet<Node> visited)
-        {
-            visited.Add(node);
-            foreach (var edge in node.GetEdges())
-            {
-                var edgeTo = Get(edge.To());
-                //no visit parent
-                if (edgeTo == parent)
-                    continue;
-                if (visited.Contains(edgeTo) || HasCycle(edgeTo, node, visited))
-                    return true;
-            }
-            return false;
-        }
-
-        public WeightedGraph SpanningTree()
-        {
-            var tree = new WeightedGraph();
-            var edges = new SimplePriorityQueue<Edge, int>();
-            var startNode = _nodes.Values.First();
-            //C : min,B
-            foreach (var edge in startNode.GetEdges())
-            {
-                edges.Enqueue(edge, edge.GetWeight());
-            }
-            //A
-            tree.AddNode(startNode.GetLabel());
-
-            while (tree.GetCountNode() < GetCountNode())
-            {
-                //C
-                var minEdge = edges.Dequeue();
-                if (tree.containsNode(minEdge.To()))
-                    continue;
-                //C
-                tree.AddNode(minEdge.To());
-                //A->C
-                tree.AddEdge(minEdge.From(), minEdge.To(), minEdge.GetWeight());
-                //C
-                var nextNode = Get(minEdge.To());
-
-                foreach (var edge in nextNode.GetEdges())
-                {
-                    if (!tree.containsNode(edge.To()))
-                    {
-                        edges.Enqueue(edge, edge.GetWeight());
-                    }
-                }
-            }
-            return tree;
         }
 
         public void Print()

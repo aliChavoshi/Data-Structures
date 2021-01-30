@@ -123,6 +123,7 @@ namespace Data_Structures.Part2
                     if (!visited.Contains(node.ToString()))
                         TraversalDepthRecursion(node, visited);
         }
+        
         public void TraversalDepthIterative(string root)
         {
             if (!_nodes.TryGetValue(root, out var node)) return;
@@ -148,6 +149,7 @@ namespace Data_Structures.Part2
                 }
             }
         }
+        
         public void TraversalBreadthIterative(string root)
         {
             if (!_nodes.TryGetValue(root, out var node)) return;
