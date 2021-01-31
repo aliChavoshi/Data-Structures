@@ -3,15 +3,15 @@ using System.Linq;
 
 namespace Data_Structures.Part3
 {
-    public class Sorting
+    public class BubbleUp
     {
-        public Sorting(int[] numbers)
+        public BubbleUp(int[] numbers)
         {
             _numbers = numbers;
         }
         private readonly int[] _numbers;
 
-        public void BubbleUpSorting()
+        public void Sorting()
         {
             for (var i = 0; i < _numbers.Length; i++)
             {

@@ -102,9 +102,13 @@ namespace Data_Structures
             */
             #endregion
 
-            var numbers = new int[] { 1, 10, 3, 2 };
-            var sorting = new Sorting(numbers);
-            sorting.BubbleUpSorting();
+            /*var numbers = new int[] { 1, 10, 3, 2 };
+            var sorting = new BubbleUp(numbers);
+            sorting.Sorting();*/
+
+            var numbers = new int[] { 10 };
+            var selectionSort = new SelectionSorting(numbers);
+            selectionSort.Sorting();
         }
 
         static int Hash(string value)
