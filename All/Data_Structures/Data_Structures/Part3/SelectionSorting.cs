@@ -5,7 +5,7 @@ namespace Data_Structures.Part3
 {
     public class SelectionSorting
     {
-        private int[] _numbers;
+        private readonly int[] _numbers;
 
         public SelectionSorting(int[] numbers)
         {
@@ -13,24 +13,32 @@ namespace Data_Structures.Part3
         }
         public void Sorting()
         {
-            var sorted = new int[5];
-            var unsorted = _numbers;
             for (var i = 0; i < _numbers.Length; i++)
             {
-                var result = int.MaxValue;
-                var m = 0;
-                for (var j = 0; j < unsorted.Length; j++)
-                {
-                    if (unsorted[j] < result)
-                    {
-                        result = unsorted[j];
-                        m = j;
-                    }
-                }
-                unsorted[m] = Int32.MaxValue;
-                sorted[i] = result;
+                var minIndex = FindMinIndex(i);
+                Swap(i, minIndex);
             }
-            _numbers = sorted;
+        }
+
+        public int FindMinIndex(int i)
+        {
+            var minIndex = i;
+            //j=i For Sorting & Unsorting
+            for (var j = i; j < _numbers.Length; j++)
+            {
+                if (_numbers[j] < _numbers[minIndex])
+                {
+                    minIndex = j;
+                }
+            }
+            return minIndex;
+        }
+
+        public void Swap(int first, int second)
+        {
+            var temp = _numbers[first];
+            _numbers[first] = _numbers[second];
+            _numbers[second] = temp;
         }
     }
 }
