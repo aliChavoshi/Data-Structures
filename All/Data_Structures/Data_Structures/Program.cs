@@ -106,9 +106,9 @@ namespace Data_Structures
             var sorting = new BubbleUp(numbers);
             sorting.Sorting();*/
 
-            var numbers = new int[] { 1, 10, 3, 2 ,3,1};
-            var selectionSort = new InsertionSort(numbers);
-            selectionSort.Sorting();
+            var numbers = new int[] { 8,2,4,1,3};
+            var selectionSort = new MergeSorting();
+            selectionSort.Sorting(numbers);
         }
 
         static int Hash(string value)
