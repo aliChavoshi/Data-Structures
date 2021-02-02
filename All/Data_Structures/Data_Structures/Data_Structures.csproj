@@ -67,6 +67,7 @@
     <Compile Include="Part3\BubbleUp.cs" />
     <Compile Include="Part3\InsertionSort.cs" />
     <Compile Include="Part3\MergeSorting.cs" />
+    <Compile Include="Part3\QuickSort.cs" />
     <Compile Include="Part3\SelectionSorting.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

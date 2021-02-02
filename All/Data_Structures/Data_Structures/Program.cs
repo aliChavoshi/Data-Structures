@@ -106,8 +106,8 @@ namespace Data_Structures
             var sorting = new BubbleUp(numbers);
             sorting.Sorting();*/
 
-            var numbers = new int[] { 8,2,4,1,3};
-            var selectionSort = new MergeSorting();
+            var numbers = new int[] { 1,5 };
+            var selectionSort = new QuickSort();
             selectionSort.Sorting(numbers);
         }
 
