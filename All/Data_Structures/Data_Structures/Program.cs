@@ -106,9 +106,9 @@ namespace Data_Structures
             var sorting = new BubbleUp(numbers);
             sorting.Sorting();*/
 
-            var numbers = new int[] {  };
-            var selectionSort = new BucketSorting();
-            selectionSort.Sorting(numbers,5);
+            var numbers = new int[] { 1, 2, 6, 45, 4, 85, 41, 5, 6 };
+            var linearSearch = new LinearSearch();
+            Console.WriteLine(linearSearch.Search(numbers, 100));
         }
 
         static int Hash(string value)
