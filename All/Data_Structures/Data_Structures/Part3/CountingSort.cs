@@ -6,10 +6,10 @@ namespace Data_Structures.Part3
 {
     public class CountingSort
     {
-        public void Sorting(int[] numbers)
+        public int[] Sorting(int[] numbers)
         {
             if (numbers.Length == 0)
-                return;
+                return new int[] { };
 
             var max = numbers.Max();
             var counts = new int[max + 1];
@@ -27,6 +27,7 @@ namespace Data_Structures.Part3
                 for (var j = 0; j < count; j++)
                     numbers[k++] = i;
             }
+            return numbers;
         }
     }
 }

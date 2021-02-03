@@ -65,6 +65,7 @@
     <Compile Include="Part2\PriorityQueueWithHeap.cs" />
     <Compile Include="Part2\WeightedGraph.cs" />
     <Compile Include="Part3\BubbleUp.cs" />
+    <Compile Include="Part3\BucketSorting.cs" />
     <Compile Include="Part3\CountingSort.cs" />
     <Compile Include="Part3\InsertionSort.cs" />
     <Compile Include="Part3\MergeSorting.cs" />
