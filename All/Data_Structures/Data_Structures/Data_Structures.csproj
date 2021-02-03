@@ -68,6 +68,7 @@
     <Compile Include="Part3\BubbleUp.cs" />
     <Compile Include="Part3\BucketSorting.cs" />
     <Compile Include="Part3\CountingSort.cs" />
+    <Compile Include="Part3\ExponentialSearching.cs" />
     <Compile Include="Part3\InsertionSort.cs" />
     <Compile Include="Part3\JumpSearch.cs" />
     <Compile Include="Part3\LinearSearch.cs" />
