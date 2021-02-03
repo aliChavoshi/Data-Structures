@@ -69,6 +69,7 @@
     <Compile Include="Part3\BucketSorting.cs" />
     <Compile Include="Part3\CountingSort.cs" />
     <Compile Include="Part3\InsertionSort.cs" />
+    <Compile Include="Part3\JumpSearch.cs" />
     <Compile Include="Part3\LinearSearch.cs" />
     <Compile Include="Part3\MergeSorting.cs" />
     <Compile Include="Part3\QuickSort.cs" />
