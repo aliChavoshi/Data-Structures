@@ -107,8 +107,8 @@ namespace Data_Structures
             sorting.Sorting();*/
 
             var numbers = new int[] { 3, 5, 6, 9, 11, 18, 20, 21, 24, 30 };
-            var linearSearch = new BinarySearch();
-            Console.WriteLine(linearSearch.SearchIterate(numbers, 30));
+            var linearSearch = new TernarySearch();
+            Console.WriteLine(linearSearch.Search(numbers, 24));
         }
 
         static int Hash(string value)

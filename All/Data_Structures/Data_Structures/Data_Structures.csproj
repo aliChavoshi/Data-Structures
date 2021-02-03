@@ -73,6 +73,7 @@
     <Compile Include="Part3\MergeSorting.cs" />
     <Compile Include="Part3\QuickSort.cs" />
     <Compile Include="Part3\SelectionSorting.cs" />
+    <Compile Include="Part3\TernarySearch.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Part1\Stack.cs" />
