@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Data_Structures.Part1;
 using Data_Structures.Part2;
 using Data_Structures.Part3;
+using Data_Structures.Part3.StringManipulationAlgorithms;
 
 namespace Data_Structures
 {
@@ -107,8 +108,8 @@ namespace Data_Structures
             sorting.Sorting();*/
 
             var numbers = new int[] { 3, 5, 6, 10 };
-            var linearSearch = new ExponentialSearching();
-            Console.WriteLine(linearSearch.Searching(numbers, 10));
+            var linearSearch = new StringManipulation();
+            Console.WriteLine(linearSearch.PalindromeWhile("ABBA"));
         }
 
         static int Hash(string value)
